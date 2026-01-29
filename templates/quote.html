@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ category }} Quote - Quote Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="container quote-container">
+    <header>
+      <h1>{{ category }} Quote</h1>
+    </header>
+
+    <main>
+      <section class="quote-card">
+        <p class="quote-text">“{{ quote }}”</p>
+        <p class="quote-author">— {{ author }}</p>
+      </section>
+
+      <div class="quote-controls">
+        <a href="{{ url_for('prev_quote', category=category, index=index, lang=lang) }}" class="btn">← Previous</a>
+        <a href="{{ url_for('next_quote', category=category, index=index, lang=lang) }}" class="btn">Next →</a>
+      </div>
+
+      <form method="get" action="{{ url_for('show_quote', category=category) }}" class="language-form">
+        <input type="hidden" name="index" value="{{ index }}">
+        <label for="lang">Translate:</label>
+        <select name="lang" id="lang" onchange="this.form.submit()">
+          {% set languages = {
+            "en":"English","hi":"Hindi","ta":"Tamil","gu":"Gujarati","bn":"Bengali",
+            "kn":"Kannada","ml":"Malayalam","fr":"French","es":"Spanish","de":"German"
+          } %}
+          {% for code, name in languages.items() %}
+            <option value="{{ code }}" {% if lang == code %}selected{% endif %}>{{ name }}</option>
+          {% endfor %}
+        </select>
+      </form>
+
+      <div class="home-link">
+        <a href="{{ url_for('home') }}" class="btn home-btn"><i class="fas fa-home"></i> Back to Home</a>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

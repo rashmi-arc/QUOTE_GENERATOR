@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🌟 Quote Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="glow">🌟 Quote Generator 🌟</h1>
+      <p class="subtitle">Choose a category and explore inspiring quotes</p>
+    </header>
+
+    <main>
+      <div class="categories-grid">
+        <a href="{{ url_for('show_quote', category='Love') }}" class="category-card love">
+          <div class="icon"><i class="fas fa-heart"></i></div>
+          <h2>Love</h2>
+          <p>Click to explore quotes</p>
+        </a>
+
+        <a href="{{ url_for('show_quote', category='Life') }}" class="category-card life">
+          <div class="icon"><i class="fas fa-leaf"></i></div>
+          <h2>Life</h2>
+          <p>Click to explore quotes</p>
+        </a>
+
+        <a href="{{ url_for('show_quote', category='Motivation') }}" class="category-card motivation">
+          <div class="icon"><i class="fas fa-bolt"></i></div>
+          <h2>Motivation</h2>
+          <p>Click to explore quotes</p>
+        </a>
+
+        <a href="{{ url_for('show_quote', category='Success') }}" class="category-card success">
+          <div class="icon"><i class="fas fa-trophy"></i></div>
+          <h2>Success</h2>
+          <p>Click to explore quotes</p>
+        </a>
+
+        <a href="{{ url_for('show_quote', category='Friendship') }}" class="category-card friendship">
+          <div class="icon"><i class="fas fa-handshake"></i></div>
+          <h2>Friendship</h2>
+          <p>Click to explore quotes</p>
+        </a>
+
+        <a href="{{ url_for('show_quote', category='Health') }}" class="category-card health">
+          <div class="icon"><i class="fas fa-heartbeat"></i></div>
+          <h2>Health</h2>
+          <p>Click to explore quotes</p>
+        </a>
+
+        <a href="{{ url_for('show_quote', category='Happiness') }}" class="category-card happiness">
+          <div class="icon"><i class="fas fa-smile"></i></div>
+          <h2>Happiness</h2>
+          <p>Click to explore quotes</p>
+        </a>
+
+        <a href="{{ url_for('show_quote', category='Wisdom') }}" class="category-card wisdom">
+          <div class="icon"><i class="fas fa-book-open"></i></div>
+          <h2>Wisdom</h2>
+          <p>Click to explore quotes</p>
+        </a>
+
+        <a href="{{ url_for('show_quote', category='Inspirational') }}" class="category-card inspirational">
+          <div class="icon"><i class="fas fa-lightbulb"></i></div>
+          <h2>Inspirational</h2>
+          <p>Click to explore quotes</p>
+        </a>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
